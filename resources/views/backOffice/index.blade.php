@@ -18,7 +18,7 @@
     <!-- Standard iPhone Touch Icon-->
     <link rel="apple-touch-icon" sizes="57x57" href="http://placehold.it/57.png/000/fff">
     <!-- Styles -->
-    <link href="{{url('backOffice/css/lib/calendar2/pignose.calendar.min.css')}}')}}" rel="stylesheet">
+    <link href="{{url('backOffice/css/lib/calendar2/pignose.calendar.min.css')}}" rel="stylesheet">
     <link href="{{url('backOffice/css/lib/chartist/chartist.min.css')}}" rel="stylesheet">
     <link href="{{url('backOffice/css/lib/font-awesome.min.css')}}" rel="stylesheet">
     <link href="{{url('backOffice/css/lib/themify-icons.css')}}" rel="stylesheet">
@@ -38,7 +38,7 @@
             <div class="nano-content">
                 <ul>
                     <div class="logo"><a href="index.html">
-                            <!-- <img src="{{url('backOffice/images/logo.png" alt="" /> --><span>Focus</span></a></div>
+                            <!-- <img src="images/logo.png" alt="" /> --><span>Focus</span></a></div>
                     <li class="label">Main</li>
                     <li><a class="sidebar-sub-toggle"><i class="ti-home"></i> Dashboard <span
                                 class="badge badge-primary">2</span> <span
@@ -174,6 +174,7 @@
                                         <ul>
                                             <li>
                                                 <a href="#">
+
                                                     <img class="pull-left m-r-10 avatar-img"
                                                         src="{{url('backOffice/images/avatar/3.jpg')}}" alt="" />
                                                     <div class="notification-content">
@@ -245,7 +246,7 @@
                                             <li class="notification-unread">
                                                 <a href="#">
                                                     <img class="pull-left m-r-10 avatar-img"
-                                                        src="{{url('backOffice/images/avatar/1.jpg')}}" alt="" />
+                                                        src="{{url('backOffice/images/avatar/1.jpg')}}'" alt="" />
                                                     <div class="notification-content">
                                                         <small class="notification-timestamp pull-right">02:34
                                                             PM</small>
@@ -1113,7 +1114,7 @@
     </div>
 
     <!-- jquery vendor -->
-    <script src="{{url('backOffice/js/lib/jquery.min.js')}}')}}"></script>
+    <script src="{{url('backOffice/js/lib/jquery.min.js')}}"></script>
     <script src="{{url('backOffice/js/lib/jquery.nanoscroller.min.js')}}"></script>
     <!-- nano scroller -->
     <script src="{{url('backOffice/js/lib/menubar/sidebar.js')}}"></script>
