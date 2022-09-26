@@ -16,3 +16,29 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('backOffice/index');
 });
+
+Route::get('/app-email', function () {
+    return view('backOffice/app-email');
+});
+Route::get('/app-event-calender', function () {
+    return view('backOffice/app-event-calender');
+});
+Route::get('/app-email', function () {
+    return view('backOffice/app-email');
+});
+Route::get('/app-profile', function () {
+    return view('backOffice/app-profile');
+});
+Route::get('/table-basic', function () {
+    return view('backOffice/table-basic');
+});
+Route::get('/table-export', function () {
+    return view('backOffice/table-export');
+});
+Route::get('/form-basic', function () {
+    return view('backOffice/form-basic');
+});
+Route::get('/form-validation', function () {
+    return view('backOffice/form-validation');
+});
+
