@@ -13,8 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/back', function () {
     return view('backOffice/index');
+});
+Route::get('/', function () {
+    return view('frontOffice/index');
 });
 
 Route::get('/app-email', function () {
@@ -23,9 +26,7 @@ Route::get('/app-email', function () {
 Route::get('/app-event-calender', function () {
     return view('backOffice/app-event-calender');
 });
-Route::get('/app-email', function () {
-    return view('backOffice/app-email');
-});
+
 Route::get('/app-profile', function () {
     return view('backOffice/app-profile');
 });
