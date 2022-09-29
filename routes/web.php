@@ -12,34 +12,69 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//back office routes 
+Route::prefix('back')->group(function () {
+    Route::get('/', function () {
+        return view('backOffice/index');
+    });
+    
+    
+    Route::get('/app-email', function () {
+        return view('backOffice/app-email');
+    });
+    Route::get('/app-event-calender', function () {
+        return view('backOffice/app-event-calender');
+    });
+    
+    Route::get('/app-profile', function () {
+        return view('backOffice/app-profile');
+    });
+    Route::get('/table-basic', function () {
+        return view('backOffice/table-basic');
+    });
+    Route::get('/table-export', function () {
+        return view('backOffice/table-export');
+    });
+    Route::get('/form-basic', function () {
+        return view('backOffice/form-basic');
+    });
+    Route::get('/form-validation', function () {
+        return view('backOffice/form-validation');
+    });
+});
+//front office routes 
+Route::prefix('/')->group(function () {
+    Route::get('/', function () {
+        return view('frontOffice/index');
+    });
+    Route::get('/about', function () {
+        return view('frontOffice/about');
+    });
+    Route::get('/blog', function () {
+        return view('frontOffice/blog');
+    });
+    Route::get('/blog-details', function () {
+        return view('frontOffice/blog-details');
+    });
+    Route::get('/checkout', function () {
+        return view('frontOffice/checkout');
+    });
+    Route::get('/contact', function () {
+        return view('frontOffice/contact');
+    });
+    Route::get('/shop-details', function () {
+        return view('frontOffice/shop-details');
+    });
+    Route::get('/shop', function () {
+        return view('frontOffice/shop');
+    });
+    Route::get('/shopping-cart', function () {
+        return view('frontOffice/shopping-cart');
+    });
 
-Route::get('/back', function () {
-    return view('backOffice/index');
-});
-Route::get('/', function () {
-    return view('frontOffice/index');
 });
 
-Route::get('/app-email', function () {
-    return view('backOffice/app-email');
-});
-Route::get('/app-event-calender', function () {
-    return view('backOffice/app-event-calender');
-});
 
-Route::get('/app-profile', function () {
-    return view('backOffice/app-profile');
-});
-Route::get('/table-basic', function () {
-    return view('backOffice/table-basic');
-});
-Route::get('/table-export', function () {
-    return view('backOffice/table-export');
-});
-Route::get('/form-basic', function () {
-    return view('backOffice/form-basic');
-});
-Route::get('/form-validation', function () {
-    return view('backOffice/form-validation');
-});
+
+
 

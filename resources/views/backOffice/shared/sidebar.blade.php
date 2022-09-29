@@ -27,9 +27,9 @@
                             <li><a href="chart-knob.html">Knob</a></li>
                         </ul>
                     </li>
-                    <li><a href="{{ url('app-event-calender') }}"><i class="ti-calendar"></i> Calender </a></li>
-                    <li><a href="{{ url('app-email') }}"><i class="ti-email"></i> Email</a></li>
-                    <li><a href="{{ url('app-profile') }}"><i class="ti-user"></i> Profile</a></li>
+                    <li><a href="{{ url('/back/app-event-calender') }}"><i class="ti-calendar"></i> Calender </a></li>
+                    <li><a href="{{ url('/back/app-email') }}"><i class="ti-email"></i> Email</a></li>
+                    <li><a href="{{ url('/back/app-profile') }}"><i class="ti-user"></i> Profile</a></li>
                     <li><a href="app-widget-card.html"><i class="ti-layout-grid2-alt"></i> Widget</a></li>
                     <li class="label">Features</li>
                     <li><a class="sidebar-sub-toggle"><i class="ti-layout"></i> UI Elements <span
@@ -70,9 +70,9 @@
                     <li><a class="sidebar-sub-toggle"><i class="ti-layout-grid4-alt"></i> Table <span
                                 class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
-                            <li><a href="{{ url('table-basic') }}">Basic</a></li>
+                            <li><a href="{{ url('/back/table-basic') }}">Basic</a></li>
 
-                            <li><a href="{{ url('table-export') }}">Datatable Export</a></li>
+                            <li><a href="{{ url('/back/table-export') }}">Datatable Export</a></li>
                             <li><a href="table-row-select.html">Datatable Row Select</a></li>
                             <li><a href="table-jsgrid.html">Editable </a></li>
                         </ul>
@@ -91,7 +91,7 @@
                         </ul>
                     </li>
                     <li class="label">Form</li>
-                    <li><a href="{{ url('form-basic') }}"><i class="ti-view-list-alt"></i> Basic Form </a></li>
+                    <li><a href="{{ url('/back/form-basic') }}"><i class="ti-view-list-alt"></i> Basic Form </a></li>
                     <li class="label">Extra</li>
                     <li><a class="sidebar-sub-toggle"><i class="ti-files"></i> Invoice <span
                                 class="sidebar-collapse-icon ti-angle-down"></span></a>

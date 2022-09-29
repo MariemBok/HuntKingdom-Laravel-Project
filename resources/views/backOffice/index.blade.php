@@ -2,7 +2,7 @@
 @extends('backOffice.base')
 
 
-@section('title', 'Home')
+@section('title', 'BackOffice')
 
 
 
