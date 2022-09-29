@@ -2,7 +2,7 @@
 @extends('frontOffice.base')
 
 
-@section('title', 'Home')
+@section('title', 'Shop')
 
 
 
