@@ -77,7 +77,7 @@
                             <img src="{{url('frontOffice/img/banner/banner-1.jpg')}}" alt="">
                         </div>
                         <div class="banner__item__text">
-                            <h2>Clothing Collections 2030</h2>
+                            <h2>Products Collections 2030</h2>
                             <a href="#">Shop now</a>
                         </div>
                     </div>
@@ -87,10 +87,7 @@
                         <div class="banner__item__pic">
                             <img src="{{url('frontOffice/img/banner/banner-2.jpg')}}" alt="">
                         </div>
-                        <div class="banner__item__text">
-                            <h2>Accessories</h2>
-                            <a href="#">Shop now</a>
-                        </div>
+                      
                     </div>
                 </div>
                 <div class="col-lg-7">
@@ -99,7 +96,7 @@
                             <img src="{{url('frontOffice/img/banner/banner-3.jpg')}}" alt="">
                         </div>
                         <div class="banner__item__text">
-                            <h2>Shoes Spring 2030</h2>
+                            <h2>Products Spring 2030</h2>
                             <a href="#">Shop now</a>
                         </div>
                     </div>
@@ -408,7 +405,7 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="categories__text">
-                        <h2>Clothings Hot <br /> <span>Shoe Collection</span> <br /> Accessories</h2>
+                        <h2>Products  <br /> <span>Shoe Collection</span> <br /> Accessories</h2>
                     </div>
                 </div>
                 <div class="col-lg-4">
