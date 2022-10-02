@@ -18,6 +18,7 @@ return new class extends Migration
         Schema::create('category_products', function (Blueprint $table) {
             $table->id()->autoIncrement();
             $table->string('name', 25);
+            $table->longText('description');
             $table->timestamp('creationDate')->default(DB::raw('CURRENT_TIMESTAMP'));
 
         });

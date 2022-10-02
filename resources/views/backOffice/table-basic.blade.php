@@ -44,7 +44,7 @@
                             <div class="card">
                                 <div class="card-title">
                                     <h4>Table Basic </h4>
-                                    
+
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
@@ -91,7 +91,7 @@
                             <div class="card">
                                 <div class="card-title">
                                     <h4>Table Striped </h4>
-                                    
+
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
@@ -138,7 +138,7 @@
                             <div class="card">
                                 <div class="card-title">
                                     <h4>Table Bordered </h4>
-                                    
+
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
@@ -185,7 +185,7 @@
                             <div class="card">
                                 <div class="card-title">
                                     <h4>Table Hover </h4>
-                                    
+
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">

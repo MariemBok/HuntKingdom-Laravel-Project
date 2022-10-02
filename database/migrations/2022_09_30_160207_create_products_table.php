@@ -19,6 +19,7 @@ return new class extends Migration
             $table->id()->autoIncrement();
             $table->string('name',25);
             $table->float('price');
+            $table->longText('description');
             $table->unsignedBigInteger('user')->nullable();
             $table->foreign('user')->references('id')->on('users')->onDelete('cascade');
 
