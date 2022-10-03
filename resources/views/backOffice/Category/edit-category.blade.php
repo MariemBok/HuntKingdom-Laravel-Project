@@ -35,18 +35,24 @@
                         <div class="col-lg-6">
                             <div class="card">
                                 <div class="card-title">
-                                    <h4>Create Category</h4>
+                                    <h4>Edit Category</h4>
                                 </div>
                                 <div class="card-body">
                                     <div class="basic-form">
-                                        <form>
+                                        <form action="{{ url('back/category/'.$category->id) }}" method="POST" enctype="multipart/form-data">
+                                            @csrf
+                                            @method('PUT')
                                             <div class="form-group">
                                                 <label>Name</label>
-                                                <input type="text" class="form-control" placeholder="Name">
+                                                <input type="text" class="form-control" value="{{$category->name}}" name="name">
+                                                @error('name')<small class="text-bg-danger">{{$message}}</small> @enderror
+
                                             </div>
                                             <div class="form-group">
                                                 <label>Description</label>
-                                                <input type="text" class="form-control" placeholder="Description">
+                                                <input type="text" class="form-control" value="{{$category->description}}" name="description">
+                                                @error('description')<small class="text-bg-danger">{{$message}}</small> @enderror
+
                                             </div>
                                             <button type="submit" class="btn btn-outline-primary">Submit</button>
                                         </form>

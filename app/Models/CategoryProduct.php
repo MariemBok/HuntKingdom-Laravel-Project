@@ -7,10 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class CategoryProduct extends Model
 {
-
-    protected $fillable = ['id','name', 'creationDate','description'];
-    protected $primaryKey = 'id';
-    protected $table = 'category_products';
-    public $timestamps = false;
     use HasFactory;
+    protected $table = 'category_products';
+    protected $fillable = ['name', 'description','creationDate'];
+
+
+   //public mixed $description;
+    protected $primaryKey = 'id';
+    public $timestamps = false;
 }

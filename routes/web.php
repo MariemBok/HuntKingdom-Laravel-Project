@@ -21,7 +21,7 @@ Route::prefix('back')->group(function () {
     Route::controller(App\Http\Controllers\backOffice\CategoryController::class)->group(function () {
         Route::get('category', 'index');
         Route::get('category/create', 'create');
-        Route::post('category/store', 'store');
+        Route::post('category', 'store');
         Route::get('category/{category}/edit', 'edit');
         Route::put('category/{category}', 'update');
         Route::delete('category/delete/{category}', 'destroy');
