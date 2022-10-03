@@ -1,6 +1,3 @@
-
-
-
 @extends('backOffice.base')
 
 
@@ -10,8 +7,6 @@
 
 
 @section('body')
-
-
 
     <div class="content-wrap">
         <div class="main">
@@ -31,48 +26,78 @@
                     <!-- /# column -->
                 </div>
                 <!-- /# row -->
+                @if ($message=Session::get('success'))
+                    <div class="alert alert-success">
+                        <p>{{ $message }}</p>
+                    </div>
+                @endif
+                @if ($message=Session::get('s'))
+                    <div class="alert alert-success">
+                        <p>{{ $message }}</p>
+                    </div>
+                @endif
                 <section id="main-content">
                     <div class="row">
 
                         <div class="col-lg-6">
                             <div class="card">
                                 <div class="card-title">
-                                    <h4>Show category </h4>
+                                    <h4>Show category </h4>  <a href="{{url('back/category/create')}}"
+                                                                       class="btn btn-primary btn-sm float-end"> add </a>
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
                                         <table class="table table-hover ">
                                             <thead>
                                             <tr>
-                                                <th>#</th>
                                                 <th>ID</th>
                                                 <th>Name</th>
                                                 <th>Description</th>
                                                 <th>Creation date</th>
+                                                <th></th>
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Kolor Tea Shirt For Man</td>
-                                                <td><span class="badge badge-primary">Sale</span></td>
-                                                <td>January 22</td>
-                                                <td class="color-primary">$21.56</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>Kolor Tea Shirt For Women</td>
-                                                <td><span class="badge badge-success">Tax</span></td>
-                                                <td>January 30</td>
-                                                <td class="color-success">$55.32</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td>Blue Backpack For Baby</td>
-                                                <td><span class="badge badge-danger">Extended</span></td>
-                                                <td>January 25</td>
-                                                <td class="color-danger">$14.85</td>
-                                            </tr>
+                                            @foreach($categories as $category)
+                                                <tr>
+                                                    <td>{{$category->id}}</td>
+                                                    <td>{{$category->name}}</td>
+                                                    <td>{{$category->description}}</td>
+                                                    <td>{{$category->creationDate}}</td>
+                                                    <td><a href="{{url('back/category/'.$category->id.'/edit')}}"
+                                                           class="btn btn-info">Edit</a></td>
+                                                    <td class="color-danger">
+                                                        <button type="submit" class="btn btn-danger "
+                                                                data-toggle="modal" data-target="#DeleteModal">Delete
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <div>
+                                                    <div class="modal fade" id="DeleteModal" tabindex="-1"
+                                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLabel">You
+                                                                        want to delete category {{$category->name}}</h5>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                            data-dismiss="modal">Close
+                                                                    </button>
+                                                                    <form
+                                                                        action="{{url('back/category/delete/'.$category->id)}}"
+                                                                        method="POST">
+                                                                        <button type="submit" class="btn btn-danger ">
+                                                                            Yes.delete it
+                                                                        </button>
+                                                                    @csrf
+                                                                    @method('DELETE')                    </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endforeach
                                             </tbody>
                                         </table>
                                     </div>
@@ -89,7 +114,5 @@
             </div>
         </div>
     </div>
-
-
 
 @endsection

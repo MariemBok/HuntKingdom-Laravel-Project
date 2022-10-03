@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\backOffice;
 
 use App\Http\Controllers\Controller;
+use App\Models\CategoryProduct;
 use Illuminate\Http\Request;
 use App\Http\Requests\CategoryFormRequest;
+use Illuminate\Http\Response;
 
 
 class CategoryController extends Controller
@@ -12,83 +14,67 @@ class CategoryController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index()
     {
-        return view('backoffice.category.show-category');
+        $categories=CategoryProduct::all();
+        return view('backoffice.category.show-category',['categories'=>$categories]);
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
                 return view('backOffice.Category.add-category');
 
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(CategoryFormRequest $request)
     {
           $validateData = $request->validated();
-                $category = new category();
+                $category = new CategoryProduct();
                 $category->name = $validateData['name'];
                 $category->description = $validateData['description'];
                 $category->save();
-                return redirect('category')->with('success', 'category added successfully');
+                return redirect('back/category')->with('success', 'category added successfully');
     }
 
     /**
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
+
     public function show($id)
     {
-        //
+        //show products category
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+
+    public function edit( CategoryProduct $category)
     {
-        //
+        return view('backOffice.category.edit-category', compact('category'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function update(CategoryFormRequest $request, $category)
     {
-        //
+        $validateData = $request->validated();
+        $category = CategoryProduct::findOrFail($category);
+        $category->name = $validateData['name'];
+        $category->description = $validateData['description'];
+        $category->update();
+        return redirect('back/category')->with('s', 'category updated successfully!!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
-        //
+        $category=CategoryProduct::find($id);
+
+        $category->delete();
+        return redirect('back/category')->with('message', 'category deleted successfully!!');
     }
 }
