@@ -26,6 +26,15 @@ Route::prefix('back')->group(function () {
         Route::put('category/{category}', 'update');
         Route::delete('category/delete/{category}', 'destroy');
     });
+    //ProductRoute
+    Route::controller(App\Http\Controllers\backOffice\ProductController::class)->group(function () {
+        Route::get('product', 'index');
+        Route::get('product/create', 'create');
+        Route::post('product', 'store');
+        Route::get('product/{product}/edit', 'edit');
+        Route::put('product/{product}', 'update');
+        Route::delete('product/delete/{product}', 'destroy');
+    });
 
 
 
