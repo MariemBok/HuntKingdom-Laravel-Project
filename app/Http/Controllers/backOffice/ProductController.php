@@ -83,7 +83,7 @@ class ProductController extends Controller
                 $file = $request->file('picture');
                 $ext = $file->getClientOriginalExtension();
                 $filename = time().'.'.$ext;
-                $file->move('uploads/category/',$filename);
+                $file->move('uploads/products/',$filename);
             }
           $product->update([
               'category'=>$validatedData['category'],
