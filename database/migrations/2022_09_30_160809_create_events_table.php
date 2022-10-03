@@ -17,7 +17,9 @@ return new class extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->string('description', 25)->nullable()->default('');
+            $table->string('name', 25)->nullable()->default('');
+
+            $table->text('description')->nullable()->default('');
             $table->timestamp('startDate')->nullable();
             $table->timestamp('endDate')->nullable();
             $table->string('duration', 25)->nullable()->default('');

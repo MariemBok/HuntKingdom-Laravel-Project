@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\backOffice\EventController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,6 +26,18 @@ Route::prefix('back')->group(function () {
         Route::get('category/{category}/edit', 'edit');
         Route::put('category/{category}', 'update');
         Route::delete('category/delete/{category}', 'destroy');
+    });
+
+    Route::controller(EventController::class)->group(function () {
+        Route::get('events', 'index');
+        Route::get('events/create', 'create');
+        Route::post('events/store', 'store');
+        Route::get('events/{event}/edit', 'edit');
+        Route::put('events/{event}', 'update');
+        Route::delete('events/delete/{event}', 'destroy');
+    });
+    Route::get('/event/add', function () {
+        return view('backOffice/app-email');
     });
 
 

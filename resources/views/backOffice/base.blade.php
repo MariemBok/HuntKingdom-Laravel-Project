@@ -41,19 +41,21 @@
 
 </head>
 
-@include('backOffice.shared.navbar')
-@include('backOffice.shared.sidebar')
 
 
 
 @section('body')
-    @parent
- 
-    <p>This is appended to the master sidebar.</p>
+   
 @endsection
 
 <body >
-            @yield('body')
+
+@include('backOffice.shared.navbar')
+@include('backOffice.shared.sidebar')
+<div style="margin-left:20%">
+@yield('body')
+
+</div>
         </body>
 
         @include('backOffice.shared.footer')
