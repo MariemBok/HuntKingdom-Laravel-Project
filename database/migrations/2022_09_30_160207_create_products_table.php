@@ -22,13 +22,13 @@ return new class extends Migration
             $table->longText('description');
             $table->unsignedBigInteger('user')->nullable();
             $table->foreign('user')->references('id')->on('users')->onDelete('cascade');
-
+            $table->string('picture') -> nullable();
+            $table->timestamp('creationDate')->default(DB::raw('CURRENT_TIMESTAMP'));
 
             $table->unsignedBigInteger('category')->nullable();
             $table->foreign('category')->references('id')->on('category_products')->onDelete('cascade');
 
-            $table->string('picture')->default("default.jpeg");
-            $table->timestamp('creationDate')->default(DB::raw('CURRENT_TIMESTAMP'));
+
         });
     }
 

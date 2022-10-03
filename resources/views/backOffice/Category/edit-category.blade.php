@@ -52,7 +52,6 @@
                                                 <label>Description</label>
                                                 <input type="text" class="form-control" value="{{$category->description}}" name="description">
                                                 @error('description')<small class="text-bg-danger">{{$message}}</small> @enderror
-
                                             </div>
                                             <button type="submit" class="btn btn-outline-primary">Submit</button>
                                         </form>
