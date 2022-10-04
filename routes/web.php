@@ -64,6 +64,14 @@ Route::prefix('back')->group(function () {
 });
 //front office routes
 Route::prefix('/')->group(function () {
+    //product-management Route
+    Route::controller(\App\Http\Controllers\frontOffice\ProductController::class)->group(function () {
+        Route::get('shop', 'index');
+        Route::get('shop-details/{product}', 'showProductDetails');
+        Route::get('shop/productByCategory/{idCategory}', 'productsByCategory');
+        Route::GET('shop/sort-by', 'sort_by');
+
+    });
     Route::get('/', function () {
         return view('frontOffice/index');
     });
@@ -82,12 +90,10 @@ Route::prefix('/')->group(function () {
     Route::get('/contact', function () {
         return view('frontOffice/contact');
     });
-    Route::get('/shop-details', function () {
+   /* Route::get('/shop-details', function () {
         return view('frontOffice/shop-details');
-    });
-    Route::get('/shop', function () {
-        return view('frontOffice/shop');
-    });
+    });*/
+
     Route::get('/shopping-cart', function () {
         return view('frontOffice/shopping-cart');
     });

@@ -40,6 +40,8 @@ class ProductController extends Controller
             'name' => $validatedData['name'],
             'description' => $validatedData['description'],
             'price' => $validatedData['price'],
+            'reference' => $validatedData['reference'],
+
             'picture' => $filename
         ]);
         return redirect('back/product')->with('success', 'product added successfully');
@@ -112,11 +114,5 @@ class ProductController extends Controller
         return redirect('back/product')->with('successUpdate', 'product deleted successfully!!');
     }
 
-   /* public function shop(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
-    {
 
-        $products = Product::all();
-        $categories = CategoryProduct::all();
-        return view('frontOffice.shop', ['products' => $products, 'categories' => $categories]);
-    }*/
 }

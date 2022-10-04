@@ -7,7 +7,7 @@ use App\Models\CategoryProduct;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
-class CategoryControllerFront extends Controller
+class CategoryController extends Controller
 {
 
 }

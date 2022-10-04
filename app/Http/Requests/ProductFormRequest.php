@@ -28,16 +28,17 @@ class ProductFormRequest extends FormRequest
                 'required',
                 'string'
             ],
-
             'description'=>[
                 'required',
                 'string'
-
             ],
             'price'=>[
                 'required',
                 'string'
-
+            ],
+            'reference'=>[
+                'required',
+                'string'
             ],
             'picture'=>[
                 'nullable',
@@ -47,6 +48,7 @@ class ProductFormRequest extends FormRequest
                 'required',
                 'integer'
             ],
+
         ];
     }
 }
