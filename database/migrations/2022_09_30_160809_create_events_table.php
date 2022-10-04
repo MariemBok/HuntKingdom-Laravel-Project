@@ -5,9 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
 
-
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      *
@@ -17,17 +15,35 @@ return new class extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->string('description', 25)->nullable()->default('');
-            $table->timestamp('startDate')->nullable();
-            $table->timestamp('endDate')->nullable();
-            $table->string('duration', 25)->nullable()->default('');
-            $table->integer('nbrMax')->nullable()->default(0);
-            $table->string('location',25);
-            $table->string('picture')->default("default.jpeg");
+            $table
+                ->string('name', 25)
+                ->nullable()
+                ->default('');
+
+            $table
+                ->text('description')
+                ->nullable()
+                ->default('');
+            $table->date('startDate')->nullable();
+            $table
+                ->time('time');
+              
+            $table
+                ->integer('nbrMax')
+                ->nullable()
+                ->default(0);
+            $table->string('location', 25);
+            $table->string('picture')->default('default.jpeg');
 
             $table->unsignedBigInteger('organizer')->nullable();
-            $table->foreign('organizer')->references('id')->on('users')->onDelete('cascade');
-            $table->timestamp('creationDate')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table
+                ->foreign('organizer')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
+            $table
+                ->timestamp('creationDate')
+                ->default(DB::raw('CURRENT_TIMESTAMP'));
         });
     }
 
