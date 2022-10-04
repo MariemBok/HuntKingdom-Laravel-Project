@@ -19,7 +19,9 @@ Route::prefix('back')->group(function () {
         return view('backOffice/index');
     });
     //categoryRoute
-    Route::controller(App\Http\Controllers\backOffice\CategoryController::class)->group(function () {
+    Route::controller(
+        App\Http\Controllers\backOffice\CategoryController::class
+    )->group(function () {
         Route::get('category', 'index');
         Route::get('category/create', 'create');
         Route::post('category/store', 'store');
@@ -30,18 +32,17 @@ Route::prefix('back')->group(function () {
 
     Route::controller(EventController::class)->group(function () {
         Route::get('events', 'index');
+        Route::get('event/{id}', 'getEventById');
+
         Route::get('events/create', 'create');
-        Route::post('events/store', 'store');
-        Route::get('events/{event}/edit', 'edit');
-        Route::put('events/{event}', 'update');
-        Route::delete('events/delete/{event}', 'destroy');
+        Route::post('event/store', 'store');
+        Route::get('event/{id}/edit', 'edit');
+        Route::put('events/{id}', 'update');
+        Route::delete('events/delete/{id}', 'destroy');
     });
     Route::get('/event/add', function () {
         return view('backOffice/app-email');
     });
-
-
-
 
     Route::get('/app-email', function () {
         return view('backOffice/app-email');
@@ -95,10 +96,4 @@ Route::prefix('/')->group(function () {
     Route::get('/shopping-cart', function () {
         return view('frontOffice/shopping-cart');
     });
-
 });
-
-
-
-
-
