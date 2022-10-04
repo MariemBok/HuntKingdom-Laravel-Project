@@ -43,11 +43,11 @@
                           <a href="#">
                             <i class="ti-check color-success"></i>
                           </a>
-                          <a href="#">
+                          <a href="{{ url('/back/events/delete/'.$event->id) }}" title="Update event" >
                             <i class="ti-close color-danger"></i>
                           </a>
-                          <a href="#">
-                            <i class="fa fa-reply color-primary"></i>
+                          <a href="{{ url('/back/event/'.$event->id.'/edit') }}" title="Update event" >
+                            <i class="fa fa-edit color-primary"></i>
                           </a>
                           <a href="{{ url('/back/event/'.$event->id) }}" title="Show more details" >
                             <i class="fa fa-eye color-primary"></i>

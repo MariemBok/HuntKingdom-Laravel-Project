@@ -25,8 +25,11 @@ class EventController extends Controller
         $event = Event::find($id);
         if (!$event) {
             $events = Event::all();
+            if ($events) {
+                return view('backOffice.event.show')->with('events', $events);
+            }
 
-            return view('backOffice.event.show')->with('events', $events);
+            return view('backOffice.event.show')->with('events', []);
         }
 
         return view('backOffice.event.event')->with('event', $event);
@@ -65,5 +68,49 @@ class EventController extends Controller
         $request['startDate'] = $dateTime->format('Y-m-d H:i:s');
         Event::create($input);
         return redirect('back/events')->with('flash_message', 'Event Addedd!');
+    }
+
+    public function edit($id)
+    {
+        $event = Event::find($id);
+        if ($event) {
+            return view('backOffice.event.edit')->with('event', $event);
+        }
+        $events = Event::all();
+        if ($events) {
+            return view('backOffice.event.show')->with('events', $events);
+        }
+
+        return view('backOffice.event.show')->with('events', []);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $event = Event::find($id);
+        $input = $request->all();
+        if ($request->file('picture')) {
+            $file = $request->file('picture');
+            $filename = $file->getClientOriginalName();
+
+            $picture = date('His') . '-' . $filename;
+            $input['picture'] = 'images/events/' . $picture;
+
+            //move image to public/img folder
+            $file->move(public_path('images/events'), $picture);
+        }
+
+        if ($request['startDate']) {
+            $dateTime = Carbon::parse($request->startDate);
+
+            $request['startDate'] = $dateTime->format('Y-m-d H:i:s');
+        }
+
+        $event->update($input);
+        return redirect('back/events')->with('flash_message', 'Event Updated!');
+    }
+    public function delete($id)
+    {
+        Event::destroy($id);
+        return redirect('back/events')->with('flash_message', 'Event Updated!');
     }
 }

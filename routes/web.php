@@ -37,8 +37,8 @@ Route::prefix('back')->group(function () {
         Route::get('events/create', 'create');
         Route::post('event/store', 'store');
         Route::get('event/{id}/edit', 'edit');
-        Route::put('events/{id}', 'update');
-        Route::delete('events/delete/{id}', 'destroy');
+        Route::post('event/update/{id}', 'update');
+        Route::get('events/delete/{id}', 'delete');
     });
     Route::get('/event/add', function () {
         return view('backOffice/app-email');
