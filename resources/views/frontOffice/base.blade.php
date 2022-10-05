@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="{{url('frontOffice/css/owl.carousel.min.css')}}" type="text/css">
     <link rel="stylesheet" href="{{url('frontOffice/css/slicknav.min.css')}}" type="text/css">
     <link rel="stylesheet" href="{{url('frontOffice/css/style.css')}}" type="text/css">
+
+	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet"> <!-- https://fonts.google.com/ -->
 </head>
 
 @include('frontOffice.shared.navbar')
@@ -51,5 +53,6 @@
     <script src="{{url('frontOffice/js/mixitup.min.js')}}"></script>
     <script src="{{url('frontOffice/js/owl.carousel.min.js')}}"></script>
     <script src="{{url('frontOffice/js/main.js')}}"></script>
-
 </html>
+
+
