@@ -4,13 +4,12 @@
 
 @section('title', 'Shop')
 
-<head> <title></title>
-</head>
+
 
 
 @section('body')
 
-<body>
+    <body>
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
@@ -60,13 +59,32 @@
                                             <div class="shop__sidebar__categories">
                                                 <ul class="nice-scroll">
                                                     @foreach($categories as $category)
-                                                    <li><a href="{{url('shop/productByCategory/'.$category->id)}}">{{$category->name}}</a></li>
+                                                        <li><a href="{{url('shop/productByCategory/'.$category->id)}}">{{$category->name}}</a></li>
                                                     @endforeach
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                {{--
+                                                                <div class="card">
+                                                                    <div class="card-heading">
+                                                                        <a data-toggle="collapse" data-target="#collapseTwo">Branding</a>
+                                                                    </div>
+                                                                    <div id="collapseTwo" class="collapse show" data-parent="#accordionExample">
+                                                                        <div class="card-body">
+                                                                            <div class="shop__sidebar__brand">
+                                                                                <ul>
+                                                                                    <li><a href="#">Louis Vuitton</a></li>
+                                                                                    <li><a href="#">Chanel</a></li>
+                                                                                    <li><a href="#">Hermes</a></li>
+                                                                                    <li><a href="#">Gucci</a></li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                --}}
                                 <div class="card">
                                     <div class="card-heading">
                                         <a data-toggle="collapse" data-target="#collapseThree">Filter Price</a>
@@ -97,40 +115,41 @@
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="shop__product__option__right">
                                     <p>Sort by Price:</p>
-                                    <label for="sort_by"></label><select id="sort_by" name="sort_by" class="form-control">
+                                    <select id="sort_by" name="sort_by" classs="form-control">
                                         <option value="lowest_price">Low To High</option>
                                         <option value="highest_price">High To low</option>
                                     </select>
-                                </div>                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        @foreach($products as $product)
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item sale">
-                                <div class="product__item__pic set-bg" data-setbg="{{  asset('uploads/products/'.$product->picture )}}"  >
-                                    <span class="label"></span>
-                                    <ul class="product__hover">
-                                        <li><a href="#"><img src="{{url('frontOffice/img/icon/heart.png')}}" alt=""></a></li>
-                                        <li><a href="#"><img src="{{url('frontOffice/img/icon/compare.png')}}" alt=""> <span>Compare</span></a>
-                                        </li>
-                                        <li><a href="{{url('/shop-details/'.$product->id)}}"><img src="{{url('frontOffice/img/icon/search.png')}}" alt=""></a></li>
-                                    </ul>
-                                </div>
-                                <div class="product__item__text">
-                                    <h6>{{$product->name}}</h6>
-                                    <a href="#" class="add-cart">+ Add To Cart</a>
-                                    <div class="rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                    </div>
-                                    <h5>{{$product->price}}</h5>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="row">
+                        @foreach($all_products as $product)
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="product__item sale">
+                                    <div class="product__item__pic set-bg" data-setbg="{{  asset('uploads/products/'.$product->picture )}}"  >
+                                        <span class="label"></span>
+                                        <ul class="product__hover">
+                                            <li><a href="#"><img src="{{url('frontOffice/img/icon/heart.png')}}" alt=""></a></li>
+                                            <li><a href="#"><img src="{{url('frontOffice/img/icon/compare.png')}}" alt=""> <span>Compare</span></a>
+                                            </li>
+                                            <li><a href="{{url('/shop-details/'.$product->id)}}"><img src="{{url('frontOffice/img/icon/search.png')}}" alt=""></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="product__item__text">
+                                        <h6>{{$product->name}}</h6>
+                                        <a href="#" class="add-cart">+ Add To Cart</a>
+                                        <div class="rating">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-o"></i>
+                                        </div>
+                                        <h5>{{$product->price}}</h5>
+                                    </div>
+                                </div>
+                            </div>
                         @endforeach
                     </div>
                     <div class="row">
@@ -155,23 +174,6 @@
 
     <!-- Js Plugins -->
 
-  {{--  <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous">
-
-    $(document).ready(function(e) {
-        $('#sort_by').on('change', function () {
-            let sort_by = $('#sort_by').val();
-          $.ajax({
-                url: "{{url('/shop/sort_by')}}",
-                method: "GET",
-                data: {sort_by: sort_by},
-                success: function (res) {
-                    $('.search-result').html(res);
-                }
-            });
-        });
-    })
-</script>--}}
-
-</body>
+    </body>
 @endsection
 

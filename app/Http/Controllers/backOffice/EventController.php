@@ -4,6 +4,8 @@ namespace App\Http\Controllers\backOffice;
 
 use App\Http\Controllers\Controller;
 use App\Models\Event;
+use App\Models\Participation;
+
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
@@ -23,6 +25,9 @@ class EventController extends Controller
     public function getEventById($id)
     {
         $event = Event::find($id);
+        $participations = Participation::where('event', $id)
+            ->get()
+            ->count();
         if (!$event) {
             $events = Event::all();
             if ($events) {
@@ -32,7 +37,9 @@ class EventController extends Controller
             return view('backOffice.event.show')->with('events', []);
         }
 
-        return view('backOffice.event.event')->with('event', $event);
+        return view('backOffice.event.event')
+            ->with('event', $event)
+            ->with('participations', $participations);
     }
 
     public function create()

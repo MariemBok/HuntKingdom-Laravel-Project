@@ -3,9 +3,8 @@
 namespace App\Http\Controllers\backOffice;
 
 use App\Http\Controllers\Controller;
-use App\Models\CategoryProduct;
-use Illuminate\Http\Request;
 use App\Http\Requests\CategoryFormRequest;
+use App\Models\CategoryProduct;
 use Illuminate\Http\Response;
 
 

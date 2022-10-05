@@ -57,7 +57,7 @@
                                 </div>
                                 <div class="skype-content">
                                   <span class="contact-title">Current number of participants:</span>
-                                  <span class="contact-skype">10</span>
+                                  <span class="contact-skype">{{$participations}}</span>
                                 </div>
                               </div>
                               <div class="basic-information">
