@@ -12,6 +12,7 @@ class Product extends Model
         ['id',
             'name',
             'price',
+            'reference',
             'user',
             'description' ,
             'category',

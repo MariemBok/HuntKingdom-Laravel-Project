@@ -32,7 +32,7 @@
 
 @section('body')
     @parent
- 
+
     <p>This is appended to the master sidebar.</p>
 @endsection
 
@@ -53,6 +53,5 @@
     <script src="{{url('frontOffice/js/mixitup.min.js')}}"></script>
     <script src="{{url('frontOffice/js/owl.carousel.min.js')}}"></script>
     <script src="{{url('frontOffice/js/main.js')}}"></script>
-
 
 </html>
