@@ -30,7 +30,9 @@ Route::prefix('back')->group(function () {
         Route::delete('category/delete/{category}', 'destroy');
     });
     //ProductRoute
-    Route::controller(App\Http\Controllers\backOffice\ProductController::class)->group(function () {
+    Route::controller(
+        App\Http\Controllers\backOffice\ProductController::class
+    )->group(function () {
         Route::get('product', 'index');
         Route::get('product/create', 'create');
         Route::post('product', 'store');
@@ -104,5 +106,11 @@ Route::prefix('/')->group(function () {
     });
     Route::get('/shopping-cart', function () {
         return view('frontOffice/shopping-cart');
+    });
+    Route::controller(
+        App\Http\Controllers\frontOffice\EventController::class
+    )->group(function () {
+        Route::get('events', 'index');
+        Route::get('events/participate/{id}', 'participate');
     });
 });
