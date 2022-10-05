@@ -33,14 +33,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="blog__item">
-                        <div class="blog__item__pic set-bg" data-setbg="{{url('frontOffice/img/blog/blog-1.jpg')}}"></div>
-                        <div class="blog__item__text">
-                            <span><img src="{{url('frontOffice/img/icon/calendar.png')}}" alt=""> 16 February 2020</span>
-                            <h5>What Curling Irons Are The Best Ones</h5>
-                            <a href="#">Read More</a>
-                        </div>
-                    </div>
+                <div class="list-group list-group-flush">
+                <a href="/categories" class="list-group-item list-group-item-action bg-light">View Categories</a>
+
+            </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="blog__item">
@@ -127,8 +123,8 @@
     </section>
     <!-- Blog Section End -->
 
-  
+
     <!-- Js Plugins -->
-   
+
 </body>
 @endsection

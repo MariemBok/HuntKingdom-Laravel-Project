@@ -73,6 +73,11 @@ Route::prefix('/')->group(function () {
     Route::get('/blog', function () {
         return view('frontOffice/blog');
     });
+
+//CATEGORY POST
+    Route::resource('categories', App\Http\Controllers\CategoryPostController::class);
+
+
     Route::get('/blog-details', function () {
         return view('frontOffice/blog-details');
     });
