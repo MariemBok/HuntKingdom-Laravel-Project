@@ -70,16 +70,15 @@ Route::prefix('/')->group(function () {
     Route::get('/about', function () {
         return view('frontOffice/about');
     });
-    Route::get('/blog', function () {
-        return view('frontOffice/blog');
-    });
+
 
 //CATEGORY POST
     Route::resource('categories', App\Http\Controllers\CategoryPostController::class);
-
+//POST
+     Route::resource('posts', App\Http\Controllers\PostsController::class);
 
     Route::get('/blog-details', function () {
-        return view('frontOffice/blog-details');
+        return view('frontOffice/posts/show');
     });
     Route::get('/checkout', function () {
         return view('frontOffice/checkout');

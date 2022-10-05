@@ -17,14 +17,14 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id()->autoIncrement();
+            $table->text('title');
             $table->text('content');
             $table->unsignedBigInteger('user')->nullable();
             $table->foreign('user')->references('id')->on('users')->onDelete('cascade');
-
             $table->unsignedBigInteger('category')->nullable();
             $table->foreign('category')->references('id')->on('category_posts')->onDelete('cascade');
 
-            $table->string('picture')->default("default.jpeg");
+            $table->string('image')->default("default.jpeg");
             $table->timestamp('creationDate')->default(DB::raw('CURRENT_TIMESTAMP'));
         });
     }

@@ -30,8 +30,9 @@ class CategoryPostController extends Controller
         // $category->save();
 
                  CategoryPost::create($request->all());
+                 return redirect()->route('categories.index')
+                        ->with('success','Post created successfully.');
 
-                                return redirect('/categories');
     }
 
     public function edit(CategoryPost $category)

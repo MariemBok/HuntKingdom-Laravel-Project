@@ -6,39 +6,27 @@
 @section('body')
 <div class="content-wrap">
         <div class="main">
-            <div class="container-fluid">
+            <div class="container">
                 <div class="row">
-                    <!-- /# column -->
-                    <div class="col-lg-4 p-l-0 title-margin-left">
-                        <div class="page-header">
-                            <div class="page-title">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item active">Category</li>
-                                </ol>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-                <!-- /# row -->
                 <section id="main-content">
-                    <!-- /# row -->
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="card">
                                 <div class="card-header">
-                                  {{ isset($category) ? 'Edit Category' : 'Create Category' }}
+                                <div class="card-title">
+                                    <h5>Create Category</h5>
+                                </div>
                                 </div>
                                 <div class="card-body">
                                     <div class="basic-form">
-                                        <form action="/catagories" method="POST"
+                                        <form action="{{ route('categories.store') }}" method="POST"
                                               enctype="multipart/form-data">
                                             @csrf
-                                            @if(isset($category))
-                                            @method('PUT')
-                                            @endif
+
                                             <div class="form-group">
                                                 <label>name</label>
-                                                <input type="text" name="name" class="form-control"  placeholder="Name" value="{{ isset($category) ? $category->name : ''}}" />
+                                                <input type="text" name="name" class="form-control"  placeholder="Name" />
                                                 @error('name')<p class="text-bg-danger"></p>{{$message}}</p> @enderror
                                             </div>
 
