@@ -42,7 +42,7 @@
                         <ul>
                             <li ><a href="{{ url('/') }}">Home</a></li>
                             <li><a href="{{ url('/shop') }}">Shop</a></li>
-                            <li><a href="#">Events</a>
+                            <li><a href="{{ url('/events') }}">Events</a>
                                 <ul class="dropdown">
                                     <li><a href="{{ url('/about') }}">About Us</a></li>
                                     <li><a href="{{ url('/shop-details') }}">Shop Details</a></li>
