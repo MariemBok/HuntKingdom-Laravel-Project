@@ -12,8 +12,12 @@ class EventController extends Controller
     public function index()
     {
         $events = Event::all();
+        $allParticipations = Participation::all();
+
         if ($events) {
-            return view('frontOffice.events')->with('events', $events);
+            return view('frontOffice.events')
+                ->with('events', $events)
+                ->with('allParticipations', $allParticipations);
         }
 
         return view('frontOffice.events')->with('events', []);
@@ -22,9 +26,12 @@ class EventController extends Controller
     {
         $idUser = '1';
         $event = Event::find($id);
+
         if ($event) {
             $participation['event'] = $id;
             $participation['participant'] = $idUser;
+            $allParticipations = Participation::all();
+
             $participations = Participation::where('event', $id)
                 ->get()
                 ->count();
@@ -43,6 +50,8 @@ class EventController extends Controller
         }
         $events = Event::all();
 
-        return view('frontOffice.events')->with('events', $events);
+        return redirect('events')
+            ->with('events', $events)
+            ->with('allParticipations', $allParticipations);
     }
 }

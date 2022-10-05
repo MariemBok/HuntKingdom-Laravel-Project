@@ -19,7 +19,10 @@
         </div>
 
         <div class="row tm-mb-90 tm-gallery">
+        @if(count($events)!=0)
         @foreach ($events as $event)
+        @if(Carbon\Carbon::now()<$event->startDate)
+
 
             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
                 <figure class="effect-ming tm-video-item">
@@ -31,11 +34,45 @@
                 </figure>
                 <div class="d-flex justify-content-between tm-text-gray">
                     <span>{{$event->startDate}}</span>
-                    <a  data-toggle="modal" data-target="#exampleModal"  class="btn"><i class="fa fa-plus"></i> </a>
+                    @php ($nbr=0)
+                    @php ($exist=false)
+
+
+                    @foreach ($allParticipations as $part)
+                    @if($part->event==$event->id)
+                    @php ($nbr++)
+                    @endif
+
+                    @if($part->event==$event->id && $part->participant=="1")
+                    @php ($exist=true)
+                    @endif
+
+                    @endforeach
+
+
+
+                  @if($nbr>=$event->nbrMax)
+                  <h5 style="color:red"> FULL</h5>
+                   
+                  @else
+                  @if($exist==false)
+                  <a  data-toggle="modal" data-target="#exampleModal"  class="btn"><i class="fa fa-plus"></i> </a>
+                  @else 
+                  <h5 style="color:red"> Joined</h5>
+
+                  @endif
+
+
+                  @endif
+
                     <span>{{$event->location}}</span>
                 </div>
             </div>
+            @endif
             @endforeach
+            @else
+            <h4>No events</h4>
+            @endif
      
         </div> <!-- row -->
        

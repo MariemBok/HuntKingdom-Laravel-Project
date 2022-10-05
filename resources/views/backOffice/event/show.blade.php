@@ -24,7 +24,7 @@
                 </div>
                   
 
-
+                
                 @foreach ($events as $event)
 
                 <div class="recent-comment">
@@ -38,7 +38,12 @@
                       <h4 class="media-heading">{{$event->name}}</h4>
                       <p>{{$event->description}}</p>
                       <div class="comment-action">
-                        <div class="badge badge-success">Coming</div>
+                      @if(Carbon\Carbon::now()>$event->startDate)
+                      <div class="badge badge-danger">Finished</div>
+                      @endif
+                      @if(Carbon\Carbon::now()<$event->startDate)
+                      <div class="badge badge-success">Coming</div>
+                      @endif
                         <span class="m-l-10">
                           <a href="#">
                             <i class="ti-check color-success"></i>
@@ -54,7 +59,12 @@
                           </a>
                         </span>
                       </div>
-                      <p class="comment-date">Start date: {{$event->startDate}}</p> <br>
+                    @if(Carbon\Carbon::now()>$event->startDate)
+                      <p class="comment-date" style="color:red;">Start date: {{ $event->startDate}}</p> <br>
+                      @endif
+                      @if(Carbon\Carbon::now()<$event->startDate)
+                      <p class="comment-date">Start date: {{ $event->startDate}}</p> <br>
+                      @endif
 
                       
                     </div>
