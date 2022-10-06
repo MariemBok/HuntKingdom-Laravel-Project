@@ -66,6 +66,13 @@
                                                     class="text-bg-danger">{{$message}}</small> @enderror
                                             </div>
                                             <div class="form-group">
+                                                <label>Reference</label>
+                                                <input type="text" class="form-control" name="reference"
+                                                       placeholder="reference"/>
+                                                @error('reference')<small
+                                                    class="text-bg-danger">{{$message}}</small> @enderror
+                                            </div>
+                                            <div class="form-group">
                                                 <label>Category</label>
                                                 <select name="category" class="form-control">
                                                     @foreach ($categories as $category)

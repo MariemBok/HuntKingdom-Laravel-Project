@@ -20,6 +20,7 @@
     <link rel="apple-touch-icon" sizes="72x72" href="http://placehold.it/72.png/000/fff">
     <!-- Standard iPhone Touch Icon-->
     <link rel="apple-touch-icon" sizes="57x57" href="http://placehold.it/57.png/000/fff">
+    
     <!-- Styles -->
     <link href="{{url('backOffice/css/lib/calendar2/pignose.calendar.min.css')}}" rel="stylesheet">
     <link href="{{url('backOffice/css/lib/chartist/chartist.min.css')}}" rel="stylesheet">
@@ -41,25 +42,27 @@
 
 </head>
 
-@include('backOffice.shared.navbar')
-@include('backOffice.shared.sidebar')
 
 
 
 @section('body')
-    @parent
- 
-    <p>This is appended to the master sidebar.</p>
+   
 @endsection
 
 <body >
-            @yield('body')
+
+@include('backOffice.shared.navbar')
+@include('backOffice.shared.sidebar')
+<div style="margin-left:20%">
+@yield('body')
+
+</div>
         </body>
 
         @include('backOffice.shared.footer')
 
 
-
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 <script src="{{url('backOffice/js/lib/jquery.min.js')}}"></script>
     <script src="{{url('backOffice/js/lib/jquery.nanoscroller.min.js')}}"></script>
