@@ -47,8 +47,16 @@
                             <span><img src="{{url('frontOffice/img/icon/calendar.png')}}" alt="">{{$post->creationDate}}</span>
                             <h5>{{$post->title}}</h5>
                             <a href="{{ route('posts.show',$post->id) }}">Read More</a>
-
                         </div>
+                        <form action="{{ route('posts.destroy',$post->id) }}" method="POST">
+
+                                    <a class="btn btn-primary btn-sm" href="{{ route('posts.edit',$post->id) }}">Edit</a>
+
+                                    @csrf
+                                    @method('DELETE')
+
+                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                    </form>
                     </div>
                 </div>
                 @endforeach
