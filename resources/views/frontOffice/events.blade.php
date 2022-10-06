@@ -43,7 +43,7 @@
                     @php ($nbr++)
                     @endif
 
-                    @if($part->event==$event->id && $part->participant=="1")
+                    @if($part->event==$event->id && $part->participant==Auth::user()->id)
                     @php ($exist=true)
                     @endif
 
@@ -82,6 +82,8 @@
     </div>
 
 
+    @if(count($events))
+
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -101,5 +103,6 @@
     </div>
   </div>
 </div>
+@endif
 
 @endsection

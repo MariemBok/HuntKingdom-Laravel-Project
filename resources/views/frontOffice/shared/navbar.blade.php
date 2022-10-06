@@ -6,25 +6,41 @@
         <div class="header__top">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-6 col-md-7">
+                    <div class="col-lg-4 col-md-4">
                         <div class="header__top__left">
-                            <p>Free shipping, 30-day return or refund guarantee.</p>
+                        @if(Auth::user())
+                        <p>Hello, {{ Auth::user()->getName() }}</p>
+                        @else
+                        <p>Free shipping, 30-day return or refund guarantee.</p>
+                        @endif
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-5">
+                    <div class="col-lg-8 col-md-8">
                         <div class="header__top__right">
                             <div class="header__top__links">
-                                <a href="#">Sign in</a>
-                                <a href="#">FAQs</a>
+                            @if(!Auth::user())
+
+                                <a href="{{ url('/login') }}">Sign in</a>
+                                <a href="{{ url('/register') }}">Sign up</a>
+                                @else
+                              
+
+                        <!-- Authentication -->
+
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+
+                            <x-dropdown-link :href="route('logout')"
+                                    onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                {{ __('Log Out') }}
+                            </x-dropdown-link>
+                        </form>
+                        
+                        @endif
+
                             </div>
-                            <div class="header__top__hover">
-                                <span>Usd <i class="arrow_carrot-down"></i></span>
-                                <ul>
-                                    <li>USD</li>
-                                    <li>EUR</li>
-                                    <li>USD</li>
-                                </ul>
-                            </div>
+                           
                         </div>
                     </div>
                 </div>

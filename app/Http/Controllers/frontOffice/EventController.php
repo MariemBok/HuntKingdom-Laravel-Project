@@ -24,7 +24,7 @@ class EventController extends Controller
     }
     public function participate($id)
     {
-        $idUser = '1';
+        $idUser = auth()->user()->id;
         $event = Event::find($id);
 
         if ($event) {
