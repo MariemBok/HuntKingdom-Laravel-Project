@@ -49,17 +49,16 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        $picture = 'default.jpeg';
+        $picture = 'images/users/default.jpeg';
 
         if ($request->picture) {
             $file = $request->file('picture');
             $filename = $file->getClientOriginalName();
 
             $picture = date('His') . '-' . $filename;
-            $input['picture'] = 'images/users/' . $picture;
 
             //move image to public/img folder
-            $file->move(public_path('images/users'), $picture);
+            $file->move(public_path('images/users/'), $picture);
         }
 
         $user = User::create([
@@ -68,7 +67,7 @@ class RegisteredUserController extends Controller
             'phone' => $request->phone,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'picture' => $picture,
+            'picture' => 'images/users/' . $picture,
         ]);
 
         event(new Registered($user));

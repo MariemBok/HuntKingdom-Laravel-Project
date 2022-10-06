@@ -6,16 +6,18 @@
         <div class="header__top">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-4 col-md-4">
+                    <div class="col-lg-6 col-md-6">
                         <div class="header__top__left">
                         @if(Auth::user())
-                        <p>Hello, {{ Auth::user()->getName() }}</p>
+                        <p  style="display:inline-block;">Hello, {{ Auth::user()->getName() }}</p>
+                        
+                        
                         @else
-                        <p>Free shipping, 30-day return or refund guarantee.</p>
+                        <p>Welcome</p>
                         @endif
                         </div>
                     </div>
-                    <div class="col-lg-8 col-md-8">
+                    <div class="col-lg-6 col-md-6">
                         <div class="header__top__right">
                             <div class="header__top__links">
                             @if(!Auth::user())
@@ -26,16 +28,20 @@
                               
 
                         <!-- Authentication -->
+                        <div style="display:inline-block;">
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
 
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
+                                <x-dropdown-link :href="route('logout')" 
+                                        onclick="event.preventDefault();
+                                                    this.closest('form').submit();">
+                                    {{ __('Log Out') }}
+                                </x-dropdown-link>
+                            </form>
+                        </div>
 
-                            <x-dropdown-link :href="route('logout')"
-                                    onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                                {{ __('Log Out') }}
-                            </x-dropdown-link>
-                        </form>
+                        <img class="profile-image img-circle" style="border-radius: 50%; display:inline-block;"
+                        src="{{url(Auth::user()->picture)}}" height="30",width="30"  alt="User picture" />
                         
                         @endif
 
