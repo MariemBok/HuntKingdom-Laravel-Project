@@ -6,7 +6,7 @@
             </a>
         </x-slot>
 
-        <form method="POST" action="{{ route('register') }}">
+        <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
             @csrf
 
             <!-- Name -->
@@ -15,7 +15,7 @@
 
                 <x-text-input id="name" class="block mt-1 w-full" type="text" name="firstName" :value="old('firstName')" required autofocus />
 
-                <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                <x-input-error :messages="$errors->get('firstName')" class="mt-2" />
             </div>
 
             <div>
@@ -23,7 +23,7 @@
 
                 <x-text-input id="name" class="block mt-1 w-full" type="text" name="lastName" :value="old('lastName')" required autofocus />
 
-                <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                <x-input-error :messages="$errors->get('lastName')" class="mt-2" />
             </div>
 
             <!-- Email Address -->
@@ -63,9 +63,14 @@
 
                 <x-text-input id="phone" class="block mt-1 w-full" type="text" name="phone" :value="old('phone')" required />
 
-                <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                <x-input-error :messages="$errors->get('phone')" class="mt-2" />
             </div>
+            <div class="mt-4">
+                <x-input-label for="picture" :value="__('Upload your picture')" />
 
+                <x-text-input id="picture" class="block mt-1 w-full" type="file" name="picture" :value="old('picture')" required />
+
+            </div>
             <div class="flex items-center justify-end mt-4">
                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
                     {{ __('Already registered?') }}
