@@ -34,7 +34,9 @@ class RegisteredUserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
+            'firstName' => ['required', 'string', 'max:255'],
+            'lastName' => ['required', 'string', 'max:255'],
+
             'phone' => ['required', 'string', 'max:8', 'min:8'],
 
             'email' => [
@@ -47,14 +49,25 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
+        $picture = 'images/users/default.jpeg';
+
+        if ($request->picture) {
+            $file = $request->file('picture');
+            $filename = $file->getClientOriginalName();
+
+            $picture = date('His') . '-' . $filename;
+
+            //move image to public/img folder
+            $file->move(public_path('images/users/'), $picture);
+        }
+
         $user = User::create([
             'firstName' => $request->firstName,
             'lastName' => $request->lastName,
             'phone' => $request->phone,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-
-            '',
+            'picture' => 'images/users/' . $picture,
         ]);
 
         event(new Registered($user));
