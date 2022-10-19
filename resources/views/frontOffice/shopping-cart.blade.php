@@ -15,7 +15,7 @@
         <div class="loader"></div>
     </div>
 
-  
+
     <!-- Header Section End -->
 
     <!-- Breadcrumb Section Begin -->
@@ -45,6 +45,8 @@
                     <div class="shopping__cart__table">
                         <table>
                             <thead>
+
+
                                 <tr>
                                     <th>Product</th>
                                     <th>Quantity</th>
@@ -53,86 +55,37 @@
                                 </tr>
                             </thead>
                             <tbody>
+                            <?php $totalprice=0; ?>
+                            @foreach($carts as $cart)
                                 <tr>
                                     <td class="product__cart__item">
                                         <div class="product__cart__item__pic">
-                                            <img src="{{url('frontOffice/img/shopping-cart/cart-1.jpg')}}" alt="">
+{{--                                            <img src="{{  asset('uploads/products/'.$cart->image )}}"  alt="">--}}
+{{--                                            <img src="uploads/products/'.{{$cart->image}} "  alt="">--}}
                                         </div>
                                         <div class="product__cart__item__text">
-                                            <h6>T-shirt Contrast Pocket</h6>
-                                            <h5>$98.49</h5>
+                                            <h5>{{$cart->product_title}}</h5>
                                         </div>
                                     </td>
                                     <td class="quantity__item">
                                         <div class="quantity">
                                             <div class="pro-qty-2">
-                                                <input type="text" value="1">
+                                                {{$cart->quantity}}
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="cart__price">$ 30.00</td>
-                                    <td class="cart__close"><i class="fa fa-close"></i></td>
+                                    <td class="cart__price">{{$cart->price}}</td>
+                                    <td class="cart__close">
+
+                                        <a  href="{{url('remove_cart/'.$cart->id)}}" onclick="confirm('Are You sure to remove this product?')" type="submit"><i  class="fa fa-close"></i></a>
+                                        @csrf
+                                        @method('DELETE')
+                                       </td>
                                 </tr>
-                                <tr>
-                                    <td class="product__cart__item">
-                                        <div class="product__cart__item__pic">
-                                            <img src="{{url('frontOffice/img/shopping-cart/cart-2.jpg')}}" alt="">
-                                        </div>
-                                        <div class="product__cart__item__text">
-                                            <h6>Diagonal Textured Cap</h6>
-                                            <h5>$98.49</h5>
-                                        </div>
-                                    </td>
-                                    <td class="quantity__item">
-                                        <div class="quantity">
-                                            <div class="pro-qty-2">
-                                                <input type="text" value="1">
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="cart__price">$ 32.50</td>
-                                    <td class="cart__close"><i class="fa fa-close"></i></td>
-                                </tr>
-                                <tr>
-                                    <td class="product__cart__item">
-                                        <div class="product__cart__item__pic">
-                                            <img src="{{url('frontOffice/img/shopping-cart/cart-3.jpg')}}" alt="">
-                                        </div>
-                                        <div class="product__cart__item__text">
-                                            <h6>Basic Flowing Scarf</h6>
-                                            <h5>$98.49</h5>
-                                        </div>
-                                    </td>
-                                    <td class="quantity__item">
-                                        <div class="quantity">
-                                            <div class="pro-qty-2">
-                                                <input type="text" value="1">
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="cart__price">$ 47.00</td>
-                                    <td class="cart__close"><i class="fa fa-close"></i></td>
-                                </tr>
-                                <tr>
-                                    <td class="product__cart__item">
-                                        <div class="product__cart__item__pic">
-                                            <img src="{{url('frontOffice/img/shopping-cart/cart-4.jpg')}}" alt="">
-                                        </div>
-                                        <div class="product__cart__item__text">
-                                            <h6>Basic Flowing Scarf</h6>
-                                            <h5>$98.49</h5>
-                                        </div>
-                                    </td>
-                                    <td class="quantity__item">
-                                        <div class="quantity">
-                                            <div class="pro-qty-2">
-                                                <input type="text" value="1">
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="cart__price">$ 30.00</td>
-                                    <td class="cart__close"><i class="fa fa-close"></i></td>
-                                </tr>
+                                    <?php $totalprice=$totalprice+$cart->price ?>
+
+                            @endforeach
+
                             </tbody>
                         </table>
                     </div>
@@ -160,8 +113,7 @@
                     <div class="cart__total">
                         <h6>Cart total</h6>
                         <ul>
-                            <li>Subtotal <span>$ 169.50</span></li>
-                            <li>Total <span>$ 169.50</span></li>
+                            <li>Total <span>{{$totalprice}}</span></li>
                         </ul>
                         <a href="#" class="primary-btn">Proceed to checkout</a>
                     </div>
@@ -171,11 +123,11 @@
     </section>
     <!-- Shopping Cart Section End -->
 
-   
+
     <!-- Search End -->
 
     <!-- Js Plugins -->
-   
+
 </body>
 @endsection
 

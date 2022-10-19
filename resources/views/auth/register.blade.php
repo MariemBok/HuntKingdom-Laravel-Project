@@ -25,6 +25,13 @@
 
                 <x-input-error :messages="$errors->get('lastName')" class="mt-2" />
             </div>
+            <div>
+                <x-input-label for="address" :value="__('address')" />
+
+                <x-text-input id="address" class="block mt-1 w-full" type="text" name="address" :value="old('address')" required autofocus />
+
+                <x-input-error :messages="$errors->get('address')" class="mt-2" />
+            </div>
 
             <!-- Email Address -->
             <div class="mt-4">
@@ -34,6 +41,7 @@
 
                 <x-input-error :messages="$errors->get('email')" class="mt-2" />
             </div>
+
 
             <!-- Password -->
             <div class="mt-4">

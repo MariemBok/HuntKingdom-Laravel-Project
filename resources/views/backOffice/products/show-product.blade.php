@@ -39,7 +39,7 @@
                 <section id="main-content">
                     <div class="row">
 
-                        <div class="col-lg-6">
+                        <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-title">
                                     <h4>Show products </h4> <a href="{{url('back/product')}}" class="btn btn-dark btn-sm float-end"> back </a>
@@ -56,6 +56,7 @@
                                                 <th>Name</th>
                                                 <th>Description</th>
                                                 <th>Price</th>
+                                                <th>Quantity</th>
                                                 <th>Picture</th>
                                                 <th>Creation date</th>
                                                 <th>Category</th>
@@ -69,6 +70,7 @@
                                                     <td>{{$product->name}}</td>
                                                     <td>{{$product->description}}</td>
                                                     <td>{{$product->price}}</td>
+                                                    <td>{{$product->quantity}}</td>
                                                     <td> <img src="{{  asset('uploads/products/'.$product->picture )}} "width="60px" height="60px" />
                                                     </td>
                                                     <td>{{$product->creationDate}}</td>

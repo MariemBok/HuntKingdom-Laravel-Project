@@ -25,6 +25,7 @@ class User extends Authenticatable
         'role',
         'picture',
         'phone',
+        'address'
     ];
 
     /**
@@ -43,7 +44,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function getName()
+    public function getName(): string
     {
         return $this->firstName . ' ' . $this->lastName;
     }

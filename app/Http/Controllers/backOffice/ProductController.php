@@ -35,18 +35,19 @@ class ProductController extends Controller
         }
         $validatedData = $request->validated();
         $category = CategoryProduct::findOrFail($validatedData['category']);
-        $product = $category->products()->create([
+        $category->products()->create([
             'category' => $validatedData['category'],
             'name' => $validatedData['name'],
             'description' => $validatedData['description'],
             'price' => $validatedData['price'],
             'reference' => $validatedData['reference'],
-
+            //'quantity' => $validatedData['quantity'],
             'picture' => $filename
         ]);
         return redirect('back/product')->with('success', 'product added successfully');
 
-
+dump($validatedData);
+dump($product);
     }
 
     /**
@@ -92,6 +93,7 @@ class ProductController extends Controller
                 'name' => $validatedData['name'],
                 'description' => $validatedData['description'],
                 'price' => $validatedData['price'],
+                'quantity' => $validatedData['quantity'],
                 'picture' => $filename
 
             ]);
