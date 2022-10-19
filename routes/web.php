@@ -8,8 +8,7 @@ use Illuminate\Support\Facades\Route;
 | Web Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
+| Here is where you can register web routes for p which
 | contains the "web" middleware group. Now create something great!
 |
 */
@@ -88,6 +87,13 @@ Route::prefix('/')->group(function () {
         Route::get('shop-details/{product}', 'showProductDetails');
         Route::get('shop/productByCategory/{idCategory}', 'productsByCategory');
         Route::GET('shop/sort-by', 'sort_by');
+        Route::post('add_cart/{id}', 'add_cart');
+        Route::GET('show_cart', 'show_cart');
+        Route::GET('remove_cart/{id}', 'remove_cart');
+
+
+
+
     });
     Route::get('/', function () {
         return view('frontOffice/index');
@@ -111,9 +117,6 @@ Route::prefix('/')->group(function () {
     Route::get('/contact', function () {
         return view('frontOffice/contact');
     });
-    /* Route::get('/shop-details', function () {
-        return view('frontOffice/shop-details');
-    });*/
 
     Route::get('/shopping-cart', function () {
         return view('frontOffice/shopping-cart');

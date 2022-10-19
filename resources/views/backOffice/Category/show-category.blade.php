@@ -39,7 +39,7 @@
                 <section id="main-content">
                     <div class="row">
 
-                        <div class="col-lg-6">
+                        <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-title">
                                     <h4>Show category </h4>  <a href="{{url('back/category/create')}}"
@@ -92,7 +92,8 @@
                                                                             Yes.delete it
                                                                         </button>
                                                                     @csrf
-                                                                    @method('DELETE')                    </div>
+                                                                    @method('DELETE')
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
