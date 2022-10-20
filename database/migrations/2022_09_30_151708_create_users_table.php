@@ -30,6 +30,7 @@ return new class extends Migration {
             $table->enum('role', [1, 2])->default(1);
             $table->string('email', 100)->unique();
             $table->string('password', 255);
+            $table->string('address', 255);
             $table->string('picture')->default('default.jpeg');
             $table->timestamps();
         });

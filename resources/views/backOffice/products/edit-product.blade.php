@@ -67,6 +67,14 @@
                                                 @error('price')<small
                                                     class="text-bg-danger">{{$message}}</small> @enderror
                                             </div>
+
+                                                <div class="form-group">
+                                                    <label>Quantity</label>
+                                                    <input type="text" class="form-control" name="quantity"
+                                                           value="{{$product->quantity}}"/>
+                                                    @error('quantity')<small
+                                                        class="text-bg-danger">{{$message}}</small> @enderror
+                                                </div>
                                                 <div class="form-group">
                                                     <label>Reference</label>
                                                     <input type="text" class="form-control" name="reference" value="{{$product->reference}}"

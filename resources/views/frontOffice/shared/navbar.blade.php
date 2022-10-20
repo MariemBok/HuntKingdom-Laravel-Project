@@ -10,8 +10,8 @@
                         <div class="header__top__left">
                         @if(Auth::user())
                         <p  style="display:inline-block;">Hello, {{ Auth::user()->getName() }}</p>
-                        
-                        
+
+
                         @else
                         <p>Welcome</p>
                         @endif
@@ -25,14 +25,14 @@
                                 <a href="{{ url('/login') }}">Sign in</a>
                                 <a href="{{ url('/register') }}">Sign up</a>
                                 @else
-                              
+
 
                         <!-- Authentication -->
                         <div style="display:inline-block;">
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
 
-                                <x-dropdown-link :href="route('logout')" 
+                                <x-dropdown-link :href="route('logout')"
                                         onclick="event.preventDefault();
                                                     this.closest('form').submit();">
                                     {{ __('Log Out') }}
@@ -42,11 +42,11 @@
 
                         <img class="profile-image img-circle" style="border-radius: 50%; display:inline-block;"
                         src="{{url(Auth::user()->picture)}}" height="30",width="30"  alt="User picture" />
-                        
+
                         @endif
 
                             </div>
-                           
+
                         </div>
                     </div>
                 </div>
@@ -56,7 +56,7 @@
             <div class="row">
                 <div class="col-lg-3 col-md-3">
                     <div class="header__logo">
-                        <a href="{{ url('/') }}"><img src="{{url('frontOffice/img/logo.png')}}" alt=""></a>
+                        <h4  class="text-capitalize" > HuntKingdom </h4>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
@@ -73,7 +73,7 @@
                                     <li><a href="{{ url('/blog-details') }}">Blog Details</a></li>
                                 </ul>
                             </li>
-                            <li><a href="{{ url('/posts') }}">Blog</ahref=></li>
+                            <li><a href="{{ url('/posts') }}">Blog</a></li>
                             <li><a href="{{ url('/contact') }}">Contacts</a></li>
                         </ul>
                     </nav>
@@ -82,8 +82,7 @@
                     <div class="header__nav__option">
                         <a href="#" class="search-switch"><img src="{{url('frontOffice/img/icon/search.png')}}" alt=""></a>
                         <a href="#"><img src="{{url('frontOffice/img/icon/heart.png')}}" alt=""></a>
-                        <a href="#"><img src="{{url('frontOffice/img/icon/cart.png')}}" alt=""> <span>0</span></a>
-                        <div class="price">$0.00</div>
+                        <a href="{{ url('show_cart') }}"><img src="{{url('frontOffice/img/icon/cart.png')}}" alt=""> <span>0</span></a>
                     </div>
                 </div>
             </div>
