@@ -17,7 +17,7 @@
     <!-- Header Section End -->
 
     <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-blog set-bg" data-setbg="{{url('frontOffice/img/breadcrumb-bg.jpg')}}">
+    <section class="breadcrumb-blog set-bg" data-setbg="{{url('frontOffice/img/treesjpg.jpg')}}">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -48,6 +48,8 @@
                             <h5>{{$post->title}}</h5>
                             <a href="{{ route('posts.show',$post->id) }}">Read More</a>
                         </div>
+                        @if(Auth::check())
+                        @if (Auth::user()->id == $post->user)
                         <form action="{{ route('posts.destroy',$post->id) }}" method="POST">
 
                                     <a class="btn btn-primary btn-sm" href="{{ route('posts.edit',$post->id) }}">Edit</a>
@@ -57,6 +59,8 @@
 
                                     <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                                     </form>
+                                    @endif
+                                    @endif
                     </div>
                 </div>
                 @endforeach

@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Post;
+use App\Models\User;
+use Auth;
+
+use App\Models\CategoryPost;
 use Illuminate\Http\Request;
 
 class PostsController extends Controller
@@ -27,7 +31,8 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return view('frontOffice.posts.create');
+        $categories = CategoryPost::all();
+        return view('frontOffice.posts.create', ['categories' => $categories]);
 
     }
 
@@ -42,11 +47,14 @@ class PostsController extends Controller
         $request->validate([
             'title' => 'required|unique:posts',
             'content' => 'required',
+            'category'=> 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
         ]);
 
         $input = $request->all();
+        $input['user'] = auth()->user()->id;
+
 
         if ($image = $request->file('image')) {
             $destinationPath = 'images/';
@@ -80,9 +88,11 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
-    {
-        return view('frontOffice.posts.edit',compact('post'));
+    public function edit(Post $post){
+
+            $categories = CategoryPost::all();
+        return view('frontOffice.posts.edit',compact('categories','post'));
+
 
     }
 
@@ -96,7 +106,8 @@ class PostsController extends Controller
     public function update(Request $request, Post $post)
     {
         $request->validate([
-            'title' => 'required|unique:posts',
+            'title' => 'required',
+            'category'=> 'required',
             'content' => 'required',
         ]);
 

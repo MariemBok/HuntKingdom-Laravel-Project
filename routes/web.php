@@ -102,6 +102,7 @@ Route::prefix('/')->group(function () {
         return view('frontOffice/about');
     });
 
+Route::resource('comments', App\Http\Controllers\CommentController::class);
 
 //CATEGORY POST
     Route::resource('categories', App\Http\Controllers\CategoryPostController::class);

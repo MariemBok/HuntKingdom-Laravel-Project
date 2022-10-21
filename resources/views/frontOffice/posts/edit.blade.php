@@ -52,10 +52,16 @@
                 <strong>Content</strong>
                 <textarea class="form-control" style="height:150px" name="content" id='content' placeholder="content" >value="{{$post->content}}"</textarea>
             </div>
-
         </div>
-
-        <div class="col-xs-12 col-sm-12 col-md-12 text-center ">
+        <div class="col-xs-6 col-sm-6 col-md-6 ">
+        <div class="form-group">
+            <label> <strong>Category</strong></label>
+                <select name="category" class="form-control">
+                    @foreach ($categories as $category)
+                    <option value="{{$category->id}}" {{$category->id==$post->category ? 'selected':''}}>
+                    {{$category->name}}</option>
+                    @endforeach
+                </select>
                 <button type="submit" class="btn btn-block ">Edit post</button>
         </div>
     </div>

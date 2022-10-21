@@ -1,7 +1,8 @@
-@extends('frontOffice.base')
+@extends('backOffice.base')
 
 
-@section('title', 'table')
+@section('title', 'Home')
+
 
 @section('body')
 

@@ -13,4 +13,7 @@ class CategoryPost extends Model
     protected $table = 'category_posts';
     public $timestamps = false;
     use HasFactory;
+    public function posts(){
+        return $this->hasMany(Post::class,'category','id');
+    }
 }
