@@ -1,6 +1,7 @@
 @foreach($comments as $comment)
     <div class="display-comment" @if($comment->parent_id != null) style="margin-left:40px;" @endif>
-        <strong>{{ $comment->user->firstName }} {{ $comment->user->lastName }}</</strong>
+        <strong>{{ $comment->user->firstName }} {{ $comment->user->lastName }}</</strong> <br>
+        <small> published at : {{$comment->created_at->format('d M Y')}} </small>
         <p>{{ $comment->body }}</p>
         <a href="" id="reply"></a>
         <form method="post" action="{{ route('comments.store') }}">
