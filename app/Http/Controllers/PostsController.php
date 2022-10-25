@@ -19,9 +19,10 @@ class PostsController extends Controller
      */
     public function index()
     {
-        return view('frontOffice.posts.index')->with('posts', Post::all());
-
-
+        $posts=Post::all();
+        $categories = CategoryPost::all();
+        return view('frontOffice.posts.index',compact('categories','posts'));
+        // return view('frontOffice.')->with('posts', );
     }
 
     /**
@@ -141,5 +142,17 @@ class PostsController extends Controller
 
         return redirect()->route('posts.index')
                         ->with('success','Product deleted successfully');
+    }
+
+    public function postsByCategory($idCategory){
+        $categories = CategoryPost::all();
+        $category=CategoryPost::findOrFail($idCategory);
+        if($category){
+            $posts=$category->posts()->get();
+            return view('frontOffice.postByCategory', compact('category', 'posts','categories'));
+        }
+        else{
+            return redirect()->back();
+        }
     }
 }

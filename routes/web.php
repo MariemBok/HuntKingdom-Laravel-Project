@@ -102,7 +102,7 @@ Route::prefix('/')->group(function () {
         return view('frontOffice/about');
     });
 
-Route::resource('comments', App\Http\Controllers\CommentController::class);
+    Route::resource('comments', App\Http\Controllers\CommentController::class);
 
 //CATEGORY POST
     Route::resource('categories', App\Http\Controllers\CategoryPostController::class);
@@ -137,3 +137,9 @@ Route::get('/dashboard', function () {
     ->name('dashboard');
 
 require __DIR__ . '/auth.php';
+
+Route::controller(
+    \App\Http\Controllers\PostsController::class
+)->group(function () {
+    Route::get('blog/postByCategory/{idCategory}', 'postsByCategory');
+});
