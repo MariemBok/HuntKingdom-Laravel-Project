@@ -91,6 +91,8 @@ Route::group(['middleware' => ['auth', 'user'], 'prefix' => '/'], function () {
         Route::post('add_cart/{id}', 'add_cart');
         Route::GET('show_cart', 'show_cart');
         Route::GET('remove_cart/{id}', 'remove_cart');
+        Route::GET('checkout', 'checkout');
+
     });
     Route::get('/', function () {
         return view('frontOffice/index');

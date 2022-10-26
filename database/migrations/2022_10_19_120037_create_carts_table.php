@@ -25,6 +25,8 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('product_id')->nullable();
             $table->string('user_id')->nullable();
+            $table->enum('status', [0, 1])->default(0);
+
             $table->timestamps();
         });
     }

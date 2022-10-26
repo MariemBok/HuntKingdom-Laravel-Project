@@ -115,7 +115,7 @@
                         <ul>
                             <li>Total <span>{{$totalprice}}</span></li>
                         </ul>
-                        <a href="#" class="primary-btn">Proceed to checkout</a>
+                        <a href="{{url('checkout')}}"  class="primary-btn">Proceed to checkout</a>
                     </div>
                 </div>
             </div>

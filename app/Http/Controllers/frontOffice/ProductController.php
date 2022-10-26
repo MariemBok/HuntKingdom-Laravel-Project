@@ -73,7 +73,6 @@ class ProductController extends Controller
 
     public function show_cart()
     {
-
         if (Auth::id()) {
             $id = Auth::user()->id;
             $carts = Cart::where('user_id', '=', $id)->get();
@@ -89,5 +88,10 @@ class ProductController extends Controller
         $cart = Cart::find($id);
         $cart->delete();
         return redirect()->back();
+    }
+    public function checkout(){
+
+        return view('frontOffice.checkout');
+
     }
 }

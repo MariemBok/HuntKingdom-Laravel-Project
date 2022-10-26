@@ -72,14 +72,17 @@
                             <p>Coat with quilted lining and an adjustable hood. Featuring long sleeves with adjustable
                                 cuff tabs, adjustable asymmetric hem with elastic side tabs and a front zip fastening
                                 with placket.</p>
-                            <div class="product__details__cart__option">
-                                <div class="quantity">
-                                    <div class="pro-qty">
-                                        <input type="text" value="1">
+                            <form action="{{url('/add_cart/'.$product->id)}}" method="Post">
+                                @csrf
+                                <div class="product__details__cart__option">
+                                    <div class="quantity">
+                                        <div class="pro-qty">
+                                            <input type="number" value="1" min="1" name="quantity">
+                                        </div>
                                     </div>
+                                    <input class="btn-dark" type="submit" value="+Add To Cart" />
                                 </div>
-                                <a href="#" class="primary-btn">add to cart</a>
-                            </div>
+                            </form>
                             <div class="product__details__btns__option">
                                 <a href="#"><i class="fa fa-heart"></i> add to wishlist</a>
                                 <a href="#"><i class="fa fa-exchange"></i> Add To Compare</a>
@@ -198,21 +201,21 @@
             </div>
             <div class="row">
                 @foreach($similarProducts as $p)
-                    @if($p->id=!$product->id)
+                    @if($p->id!=$product->id)
                     <div class="col-lg-3 col-md-6 col-sm-6 col-sm-6">
                         <div class="product__item">
-                            <div class="product__item__pic set-bg" data-setbg="{{  asset('uploads/products/'.$product->picture )}}">
+                            <div class="product__item__pic set-bg" data-setbg="{{  asset('uploads/products/'.$p->picture )}}">
                                 <span class="label">New</span>
                                 <ul class="product__hover">
                                     <li><a href="#"><img src="{{url('frontOffice/img/icon/heart.png')}}" alt=""></a></li>
                                     <li><a href="#"><img src="{{url('frontOffice/img/icon/compare.png')}}" alt=""> <span>Compare</span></a></li>
-                                    <li><a href="{{url('/shop-details/'.$product->id)}}"><img src="{{url('frontOffice/img/icon/search.png')}}" alt=""></a></li>
+                                    <li><a href="{{url('/shop-details/'.$p->id)}}"><img src="{{url('frontOffice/img/icon/search.png')}}" alt=""></a></li>
                                 </ul>
                             </div>
                             <div class="product__item__text">
-                                <h6>{{$product->name}}</h6>
+                                <h6>{{$p->name}}</h6>
                                 <a href="#" class="add-cart">+ Add To Cart</a>
-                                <h5>{{$product->price}}</h5>
+                                <h5>{{$p->price}}</h5>
                             </div>
                         </div>
                     </div>

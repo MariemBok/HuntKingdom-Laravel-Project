@@ -124,14 +124,17 @@
                                     </div>
                                     <div class="product__item__text">
                                         <h6>{{$product->name}}</h6>
-                                        <a href="#" class="add-cart">+ Add To Cart</a>
-                                        <div class="rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </div>
+                                        <form action="{{url('/add_cart/'.$product->id)}}" method="Post">
+                                            @csrf
+                                            <div class="product__details__cart__option">
+                                                <div class="quantity">
+                                                    <div class="pro-qty">
+                                                        <input type="number" value="1" min="1" name="quantity">
+                                                    </div>
+                                                </div>
+                                                <input class="btn-dark" type="submit" value="+Add To Cart" />
+                                            </div>
+                                        </form>
                                         <h5>{{$product->price}}</h5>
                                     </div>
                                 </div>
