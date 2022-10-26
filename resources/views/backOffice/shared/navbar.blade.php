@@ -35,7 +35,7 @@
                                             <li>
                                                 <a href="#">
                                                     <img class="pull-left m-r-10 avatar-img"
-                                                        src="{{url('backOffice/images/avatar/3.jpg')}}" alt="" />   
+                                                        src="{{url('backOffice/images/avatar/3.jpg')}}" alt="" />
                                                     <div class="notification-content">
                                                         <small class="notification-timestamp pull-right">02:34
                                                             PM</small>
@@ -152,7 +152,7 @@
                         </div>
                         <div class="dropdown dib">
                             <div class="header-icon" data-toggle="dropdown">
-                                <span class="user-avatar">John
+                                <span class="user-avatar">{{ Auth::user()->getName() }}
                                     <i class="ti-angle-down f-s-10"></i>
                                 </span>
                                 <div class="drop-down dropdown-profile dropdown-menu dropdown-menu-right">
@@ -189,10 +189,18 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#">
-                                                    <i class="ti-power-off"></i>
-                                                    <span>Logout</span>
-                                                </a>
+                                                <div style="display:inline-block;">
+                                                    <form method="POST" action="{{ route('logout') }}">
+                                                        @csrf
+
+                                                        <x-dropdown-link :href="route('logout')"
+                                                                         onclick="event.preventDefault();
+                                                    this.closest('form').submit();">
+                                                            {{ __('Log Out') }}
+                                                        </x-dropdown-link>
+                                                    </form>
+                                                </div>
+
                                             </li>
                                         </ul>
                                     </div>

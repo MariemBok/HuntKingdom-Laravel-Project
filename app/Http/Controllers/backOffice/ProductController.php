@@ -95,12 +95,10 @@ dump($product);
                 'price' => $validatedData['price'],
                 'quantity' => $validatedData['quantity'],
                 'picture' => $filename
-
             ]);
             return redirect('back/product')->with('success', 'product updated successfully!!');
         } else {
             return redirect('back/product')->with('message', 'No Such Product Id Found');
-
         }
     }
 

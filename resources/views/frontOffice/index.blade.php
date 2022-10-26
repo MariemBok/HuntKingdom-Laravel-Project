@@ -15,7 +15,7 @@
     </div>
 
     <!-- Offcanvas Menu Begin -->
-   
+
     <!-- Header Section End -->
 
     <!-- Hero Section Begin -->
@@ -26,10 +26,8 @@
                     <div class="row">
                         <div class="col-xl-5 col-lg-7 col-md-8">
                             <div class="hero__text">
-                                <h6>Summer Collection</h6>
-                                <h2>Fall - Winter Collections 2030</h2>
-                                <p>A specialist label creating luxury essentials. Ethically crafted with an unwavering
-                                commitment to exceptional quality.</p>
+                                <h6>HuntKingdom</h6>
+                                <h2>Our Application which brings together enthusiasts of the world of hunting</p>
                                 <a href="#" class="primary-btn">Shop now <span class="arrow_right"></span></a>
                                 <div class="hero__social">
                                     <a href="#"><i class="fa fa-facebook"></i></a>
@@ -87,7 +85,7 @@
                         <div class="banner__item__pic">
                             <img src="{{url('frontOffice/img/banner/banner-2.jpg')}}" alt="">
                         </div>
-                      
+
                     </div>
                 </div>
                 <div class="col-lg-7">
@@ -521,12 +519,12 @@
     </section>
     <!-- Latest Blog Section End -->
 
-   
+
     <!-- Footer Section End -->
 
-    
 
-   
+
+
 </body>
 @endsection
 

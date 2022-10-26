@@ -92,7 +92,7 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6">
                             <div class="continue__btn">
-                                <a href="#">Continue Shopping</a>
+                                <a href="{{ url('/shop') }}">Continue Shopping</a>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6">
@@ -115,7 +115,7 @@
                         <ul>
                             <li>Total <span>{{$totalprice}}</span></li>
                         </ul>
-                        <a href="#" class="primary-btn">Proceed to checkout</a>
+                        <a href="{{url('checkout')}}"  class="primary-btn">Proceed to checkout</a>
                     </div>
                 </div>
             </div>
