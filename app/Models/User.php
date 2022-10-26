@@ -48,4 +48,8 @@ class User extends Authenticatable
     {
         return $this->firstName . ' ' . $this->lastName;
     }
+    public function hasRole(string $role): bool
+    {
+        return $this->getAttribute('role') === $role;
+    }
 }

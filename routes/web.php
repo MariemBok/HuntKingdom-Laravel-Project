@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //back office routes
-Route::prefix('back')->group(function () {
+Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'back'], function () {
     Route::get('/', function () {
         return view('backOffice/index');
     });
@@ -78,7 +78,8 @@ Route::prefix('back')->group(function () {
     });
 });
 //front office routes
-Route::prefix('/')->group(function () {
+
+Route::group(['middleware' => ['auth', 'user'], 'prefix' => '/'], function () {
     //product-management Route
     Route::controller(
         \App\Http\Controllers\frontOffice\ProductController::class
@@ -90,10 +91,6 @@ Route::prefix('/')->group(function () {
         Route::post('add_cart/{id}', 'add_cart');
         Route::GET('show_cart', 'show_cart');
         Route::GET('remove_cart/{id}', 'remove_cart');
-
-
-
-
     });
     Route::get('/', function () {
         return view('frontOffice/index');
@@ -129,10 +126,17 @@ Route::prefix('/')->group(function () {
     });
 });
 
-Route::get('/dashboard', function () {
+/*Route::get('/dashboard', function () {
     return view('frontOffice/index');
-})
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');*/
 
+// USER DASHBOARD
+Route::get('/', function () {
+    return view('frontOffice/index');
+})->middleware(['auth', 'user'])->name('/');
+
+// ADMIN DASHBOARD
+Route::get('back', function () {
+    return view('backOffice/index');
+})->middleware(['auth', 'admin'])->name('back');
 require __DIR__ . '/auth.php';

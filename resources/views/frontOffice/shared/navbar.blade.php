@@ -42,9 +42,7 @@
 
                         <img class="profile-image img-circle" style="border-radius: 50%; display:inline-block;"
                         src="{{url(Auth::user()->picture)}}" height="30",width="30"  alt="User picture" />
-
                         @endif
-
                             </div>
 
                         </div>
@@ -56,7 +54,7 @@
             <div class="row">
                 <div class="col-lg-3 col-md-3">
                     <div class="header__logo">
-                        <h4  class="text-capitalize" > HuntKingdom </h4>
+                        <h4  class="col-6 tm-text-primary" > HuntKingdom </h4>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
