@@ -1,4 +1,3 @@
-
 @extends('frontOffice.base')
 
 
@@ -34,7 +33,7 @@
     <div class="container p-3 my-3 border col-lg-4 col-md-6 col-sm-6 ">
                 <h4 class="text-center"> <strong>choose a topic </strong></h4>
                     @foreach ($categories as $category)
-                    <a class="btn btn-dark" href="{{url('blog/postByCategory/'.$category->id)}}"> {{$category->name}}</a>
+                    <a class="btn btn-dark" href="{{url('blog/postByCategory/'.$category->id)}}">{{$category->name}}</a>
                     @endforeach
                     </div>
         <div class="container p-3 my-3 ">
@@ -87,3 +86,4 @@
 
 </body>
 @endsection
+

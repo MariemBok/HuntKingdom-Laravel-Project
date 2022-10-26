@@ -22,7 +22,7 @@ class CategoryPostController extends Controller
 
     public function store(Request $request){
         $request->validate([
-            'name' => 'required'
+            'name' => 'required|min:3|max:255|string'
             ]);
 
         $category = new CategoryPost();
@@ -43,7 +43,7 @@ class CategoryPostController extends Controller
     public function update(Request $request, CategoryPost $category)
     {
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|min:3|max:255|string',
         ]);
 
         $category->update($request->all());

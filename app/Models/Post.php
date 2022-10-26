@@ -13,4 +13,16 @@ class Post extends Model
     protected $table = 'posts';
     public $timestamps = false;
     use HasFactory;
+
+
+    public function category() {
+        return $this->belongsTo('App\Models\Post');
+    }
+    public function user() {
+        return $this->belongsTo('App\Models\User');
+    }
+    public function comments()
+    {
+        return $this->hasMany(Comment::class)->whereNull('parent_id');
+    }
 }

@@ -1,16 +1,15 @@
-@extends('frontOffice.base')
+@extends('backOffice.base')
 
 
-@section('title', 'table')
+@section('title', 'Home')
+
 
 @section('body')
 <body>
-    <div class="d-flex justify-content-end mb-2 mr-2">
-        <a href="/categories/create" class="btn btn-success">ADD CATEGORY</a>
-    </div>
+
     <div class="card card-default">
         <div class="card-header">
-       Categories
+       <a href="/categories/create" class="btn btn-success">ADD CATEGORY</a>
         </div>
 
         <table class="table table-hover ">
@@ -34,7 +33,7 @@
         <td>
                 <form action="{{route('categories.destroy',$category->id) }}" method="POST">
 
-                    <a href="{{url('categories/'. $category->id .'/edit')}}" class="button btn-info btn-sm">Edit</a>
+                    <a href="{{url('categories/'. $category->id .'/edit')}}" class="button btn-sm">Edit</a>
 
                     @csrf
                     @method('DELETE')
