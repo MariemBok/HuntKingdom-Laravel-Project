@@ -21,17 +21,14 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="basic-form">
-                                        <form action="{{ route('categories.store') }}" method="POST"
+                                        <form action="{{ url('back/categories') }}"method="POST"
                                               enctype="multipart/form-data">
                                             @csrf
-
                                             <div class="form-group">
                                                 <label>name</label>
                                                 <input type="text" name="name" class="form-control"  placeholder="Name" />
                                                 @error('name')<p class="text-bg-danger"></p>{{$message}}</p> @enderror
                                             </div>
-
-
                                             <button type="submit" class="btn btn-outline-primary">Submit</button>
                                         </form>
                                     </div>

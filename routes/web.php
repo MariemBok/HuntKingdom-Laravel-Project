@@ -43,20 +43,25 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'back'], function (
     Route::controller(EventController::class)->group(function () {
         Route::get('events', 'index');
         Route::get('event/{id}', 'getEventById');
-
         Route::get('events/create', 'create');
         Route::post('event/store', 'store');
         Route::get('event/{id}/edit', 'edit');
         Route::post('event/update/{id}', 'update');
         Route::get('events/delete/{id}', 'delete');
     });
+
+    Route::controller(\App\Http\Controllers\CategoryPostController::class)->group(function () {
+        Route::get('categories', 'index');
+        Route::get('categories/create', 'create');
+        Route::post('categories/store', 'store');
+
+
+    });
     Route::get('/event/add', function () {
         return view('backOffice/app-email');
     });
 
-    Route::get('/app-email', function () {
-        return view('backOffice/app-email');
-    });
+
     Route::get('/app-event-calender', function () {
         return view('backOffice/app-event-calender');
     });

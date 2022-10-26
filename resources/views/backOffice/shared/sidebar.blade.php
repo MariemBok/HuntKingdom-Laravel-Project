@@ -23,8 +23,8 @@
                             <li><a href="chartjs.html">commandes</a></li>
                         </ul>
                     </li>
-                    <li><a href="{{ url('/back/app-event-calender') }}"><i class="ti-calendar"></i> Calender </a></li>
-                    <li><a href="{{ url('/back/app-email') }}"><i class="ti-email"></i> Email</a></li>
+                    <li><a a href="{{url('back/categories')}}"><i class="ti-calendar"></i> Blog Management </a></li>
+                    <li><a href="{{ url('/back/events') }}"><i class="ti-email"></i> Event Management</a></li>
                     <li><a href="{{ url('/back/app-profile') }}"><i class="ti-user"></i> Profile</a></li>
                     <li><a href="app-widget-card.html"><i class="ti-layout-grid2-alt"></i> Widget</a></li>
                     <li class="label">Features</li>

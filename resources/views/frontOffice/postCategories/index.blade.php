@@ -6,10 +6,9 @@
 
 @section('body')
 <body>
-
     <div class="card card-default">
         <div class="card-header">
-       <a href="/categories/create" class="btn btn-success">ADD CATEGORY</a>
+       <a href="{{url('back/categories/create')}}" class="btn btn-success">ADD CATEGORY</a>
         </div>
 
         <table class="table table-hover ">
@@ -21,8 +20,6 @@
                 <th></th>
         </tr>
          </thead>
-
-
         <tbody>
         @foreach($categories as $category)
         <tr>

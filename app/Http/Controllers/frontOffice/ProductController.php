@@ -9,12 +9,14 @@ use App\Models\CategoryProduct;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::all();
+        //$products = Product::all();
+        $products=DB::table('products')-> orderBy('id','desc')->paginate(6);
         $productCount = $products->count();
         $categories = CategoryProduct::all();
         return view('frontOffice.shop', compact('categories', 'products', 'productCount'));
@@ -68,7 +70,6 @@ class ProductController extends Controller
         } else {
             return redirect('login');
         }
-
     }
 
     public function show_cart()
@@ -80,7 +81,6 @@ class ProductController extends Controller
         } else {
             return show('login');
         }
-
     }
 
     public function remove_cart($id)
