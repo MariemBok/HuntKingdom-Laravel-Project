@@ -31,7 +31,7 @@
     <!-- Blog Section Begin -->
     <section class="blog spad">
     <div class="container p-3 my-3 border col-lg-4 col-md-6 col-sm-6 ">
-                <h4 class="text-center"> <strong>choose a topic </strong></h4>
+                <h4 class="text-center"> <strong>choose a topic</strong></h4>
                     @foreach ($categories as $category)
                     <a class="btn btn-dark" href="{{url('blog/postByCategory/'.$category->id)}}">{{$category->name}}</a>
                     @endforeach
@@ -40,9 +40,10 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="list-group list-group-flush">
-                <a href="/categories" class="list-group-item list-group-item-action bg-light">View Categories</a>
+                <!-- <a href="/categories" class="list-group-item list-group-item-action bg-light">View Categories</a> -->
+                @if(Auth::user())
                 <a href="{{ route('posts.create') }}" class="list-group-item list-group-item-action bg-light">Create posts</a>
-
+                @endif
             </div>
                 </div>
                 @foreach($posts as $post)

@@ -41,9 +41,10 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="list-group list-group-flush">
-                <a href="/categories" class="list-group-item list-group-item-action bg-light">View Categories</a>
-                <a href="{{ route('posts.create') }}" class="list-group-item list-group-item-action bg-light">Create posts</a>
-
+                <!-- <a href="/categories" class="list-group-item list-group-item-action bg-light">View Categories</a> -->
+                @if(Auth::user())
+         <a href="{{ route('posts.create') }}" class="list-group-item list-group-item-action bg-light">Create posts</a>
+                @endif
             </div>
                 </div>
                 @foreach($posts as $post)

@@ -143,3 +143,4 @@ Route::controller(
 )->group(function () {
     Route::get('blog/postByCategory/{idCategory}', 'postsByCategory');
 });
+Route::get('/posts/pdf', [PostsController::class, 'createPDF']);
