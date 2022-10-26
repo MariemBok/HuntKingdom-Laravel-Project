@@ -4,7 +4,7 @@
         <small> published at : {{$comment->created_at->format('d M Y')}} </small>
         <p>{{ $comment->body }}</p>
         @if(Auth::check())
-                        @if (Auth::user()->id == $post->user)||Auth::user()->id == $comment->user_id
+                        @if (Auth::user()->id == $post->user||Auth::user()->id == $comment->user_id)
                         <form action="{{ route('comments.destroy',$comment->id) }}" method="POST">
 
                                     @csrf
@@ -14,7 +14,7 @@
           <span class="glyphicon glyphicon-trash"></span>
         </button>
     </div>
-    </form>
+    </form>@endif
         <a href="" id="reply"></a>
         <form method="post" action="{{ route('comments.store') }}">
             @csrf
@@ -29,6 +29,6 @@
         </form>
         @include('frontOffice.posts.commentsDisplay', ['comments' => $comment->replies])
     </div>
-    @endif @endif
+    @endif
 @endforeach
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
